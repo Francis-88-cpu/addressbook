@@ -4,25 +4,26 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                echo 'checkout'
+                echo 'checking out from git'
+                git 'https://github.com/Francis-88-cpu/addressbook.git'
             }
         }
 
         stage('compile') {
             steps {
-                echo 'compile'
+                sh 'mvn compile'
             }
         }
 
         stage('test') {
             steps {
-                echo 'test'
+                sh 'mvn test'
             }
         }
 
         stage('package') {
             steps {
-                echo 'package'
+                sh 'mvn package'
             }
         }
 
